@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy, Cut, Past Using JS - By Jahid Walid </title>
+    <style>
+    input{
+        padding: 10px 12px;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    button{
+        padding: 11px 12px;
+        background: rgb(0, 110, 255);
+        color: white;
+        font-family: sans-serif;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <section>
+    <!-- ======= Copy Text Start ========= -->
+        <input type="text" value="Please Copy Text" id="copy-text">
+        <button title="Click To Copy Text" id="copy-btn">Copy Button</button>
+    <!-- ======== Copy Text End ========== -->
+
+    <!-- ======= Cut Text Start ========= -->
+        <input type="text" value="Please Cut Text" id="cut-text">
+        <button title="Click To Cut Text" id="cut-btn">Cut Button</button>
+    <!-- ======== Cut Text End ========== -->
+    </section>
+
+
+    <script>
+        //======== Copy Text Start ========
+        const copyText=document.getElementById('copy-text');
+        const copyBtn=document.getElementById('copy-btn');
+
+        copyBtn.addEventListener('click', function(){
+          navigator.clipboard.writeText(copyText.value);
+          alert("Text Already Copied")
+        })
+
+        //======== Copy Text End ======= 
+
+        //======== Cut Text Start ========
+        const cutText=document.getElementById('cut-text');
+        const cutBtn=document.getElementById('cut-btn');
+
+        cutBtn.addEventListener('click', function(){
+          navigator.clipboard.writeText(cutText.value);
+          cutText.value = "";
+          alert("Text Already Cut");
+        })
+        //======== Cut Text End ======= 
+
+         
+    </script>
+</body>
+</html>
