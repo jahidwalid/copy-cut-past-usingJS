@@ -27,13 +27,19 @@
     <section>
     <!-- ======= Copy Text Start ========= -->
         <input type="text" value="Please Copy Text" id="copy-text">
-        <button title="Click To Copy Text" id="copy-btn">Copy Button</button>
+        <button title="Click To Copy Text" id="copy-btn">Copy Button</button> <br/> <br/>
     <!-- ======== Copy Text End ========== -->
 
     <!-- ======= Cut Text Start ========= -->
         <input type="text" value="Please Cut Text" id="cut-text">
-        <button title="Click To Cut Text" id="cut-btn">Cut Button</button>
+        <button title="Click To Cut Text" id="cut-btn">Cut Button</button><br/><br/>
     <!-- ======== Cut Text End ========== -->
+
+    <!-- ======= Cut Text Start ========= -->
+        <input type="text" id="past-text">
+        <button title="Click To Past Text" id="past-btn">Past Button</button><br/><br/>
+    <!-- ======== Cut Text End ========== -->
+
     </section>
 
 
@@ -59,6 +65,19 @@
           alert("Text Already Cut");
         })
         //======== Cut Text End ======= 
+        
+        //======== Past Text Start ========
+        const pastText=document.getElementById('past-text');
+        const pastBtn=document.getElementById('past-btn');
+
+        pastBtn.addEventListener('click', function(){
+            pastText.value = "";
+          navigator.clipboard.readText()
+          .then(function(text){
+            pastText.value = text;
+          })
+        })
+        //======== Past Text End ======= 
 
          
     </script>
